@@ -43,8 +43,8 @@ export class View {
             this.searchList.innerHTML = '';
             this.input.value = '';
             const resultItem = this.createElement('li', 'result-item');
-            const resultItemBox = this.createElement('ul', 'result-item__box');
 
+            const resultItemBox = this.createElement('ul', 'result-item__box');
             const nameValue = this.createElement('li', 'name');
             const ownerValue = this.createElement('li', 'owner');
             const starsValue = this.createElement('li', 'stars');
@@ -52,6 +52,7 @@ export class View {
             const btn = this.createElement('button', 'btn');
             const vector1 = this.createElement('span', 'vector1');
             const vector2 = this.createElement('span', 'vector2');
+
             this.api.loadUserData(userData.name)
             .then(response => {
                 for (let item of response.items) {
@@ -83,18 +84,9 @@ export class View {
             btn.addEventListener('click', (event) => {
                 resultItem.classList.remove('result-item--active');
             })
+
         } catch (e) {
             console.log(e);
         }
-        
     }
-
-    // createDataList(list, title, value) {
-    //     const resultItemBox = this.createElement('ul', 'result-item__box');
-    //     list.forEach(item => {
-    //         const li = this.createElement('li', `${item.toString()}`);
-    //         li.textContent = `${title}: ${item[value]}`;
-    //         resultItemBox.append(li);
-    //     })
-    // }
 }
