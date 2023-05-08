@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+
+    font-family: 'Roboto', sans-serif;
+    font-size: 24px;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+}
+
+ul, ol {
+    list-style-type: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+.wrapper {
+    max-width: 661px;
+    min-height: 761px;
+    margin: 20px auto;
+
+    background: #C4C4C4;
+}
+
+.app {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    padding: 62px 84px 72px 74px;
+}
+
+.input {
+    width: 500px;
+    height: 61px;
+    border: none;
+    outline: 0;
+
+    padding: 15px;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 48px;
+    line-height: 56px;
+
+    background: #ffffff
+}
+
+.search-input {
+    
+    width: 500px;
+
+}
+
+.search-list {
+    position: absolute;
+    z-index: 1000;
+    width: 500px;
+    padding: 0;
+    opacity: 0;
+    pointer-events: none;
+    max-height: auto;
+    overflow-y: auto;
+}
+
+.search-list--active {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.search-item {
+    display: flex;
+    align-items: center;
+
+    height: 0;
+    opacity: 0;
+    padding: 5px 15px;
+
+    cursor: pointer;
+
+    border: 2px solid #000000;
+    background: #E3E3E3;
+    transition: all 0.2s ease-in-out;
+}
+
+.search-list--active .search-item {
+    opacity: 1;
+    height: 44px;
+    transition: all 0.2s ease-in-out;
+}
+
+.search-item:hover {
+    background: #65CDF9;
+}
+
+.result-list {
+    margin-top: 45px;
+}
+
+.result-item {
+    display: none;
+    justify-content: space-between;
+    align-items: center;
+    width: 503px;
+    min-height: 101px;
+
+    padding: 8px 16px;
+
+    background: #E27BEB;
+    border: 1px solid #000000;
+}
+
+.result-item--active {
+    display: flex;
+}
+
+.btn {
+    position: relative;
+    width: 42px;
+    height: 38.5px;
+    background: inherit;
+    margin-right: 22px;
+    
+    border: none;
+}
+
+.vector1 {
+    position: absolute;
+
+    display: block;
+    width: 55px;
+    height: 4px;
+
+    background: #FF0000;
+    transform: rotate(45deg);
+}
+
+.vector2 {
+    position: absolute;
+
+    display: block;
+    width: 55px;
+    height: 4px;
+
+    background: #FF0000;
+    transform: rotate(-45deg);
+}
