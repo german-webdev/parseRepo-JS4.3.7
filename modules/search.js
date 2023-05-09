@@ -3,26 +3,26 @@ export class Search {
         this.view = view;
         this.api = api;
 
-        this.view.input.addEventListener('keyup', this.debounce(this.loadUsers.bind(this), 500));
+        this.view.input.addEventListener('keyup', this.debounce(this.loadRepos.bind(this), 500));
     }
 
-    loadUsers() {
+    loadRepos() {
         if ( this.view.input.value) {
-            this.clearUsers();
-            this.usersRequest(this.view.input.value);
+            this.clearRepos();
+            this.reposRequest(this.view.input.value);
 
         } else {
-            this.clearUsers();
+            this.clearRepos();
         }
     }
 
-    async usersRequest(searchValue) {
-        let users;
+    async reposRequest(searchValue) {
+        let repos;
         try {
-            await this.api.loadUsers(searchValue).then((response) => {
+            await this.api.loadRepos(searchValue).then((response) => {
                 response.json().then(response => {
-                    users = response.items;
-                    users.forEach(user => this.view.createUser(user));
+                    repos = response.items;
+                    repos.forEach(repo => this.view.createRepo(repo));
                 })
             })
         } catch (error) {
@@ -30,7 +30,7 @@ export class Search {
         }
     }
 
-    clearUsers() {
+    clearRepos() {
         this.view.searchList.innerHTML = '';
     }
 

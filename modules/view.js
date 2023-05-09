@@ -24,20 +24,20 @@ export class View {
         return element;
     }
 
-    createUser(userData) {
-        const repo = userData.name;
-        const userElement = this.createElement('li', 'search-item');
+    createRepo(repoData) {
+        const repo = repoData.name;
+        const repoElement = this.createElement('li', 'search-item');
 
-        userElement.addEventListener('click', (event) => this.showUserData(userData));
-        userElement.textContent = repo;
+        repoElement.addEventListener('click', (event) => this.showRepoData(repoData));
+        repoElement.textContent = repo;
 
-        this.searchList.append(userElement);
+        this.searchList.append(repoElement);
         if (this.searchList.innerHTML) {
             this.searchList.classList.add('search-list--active');
         }
     }
 
-    showUserData(userData) {
+    showRepoData(repoData) {
 
         try {
             this.searchList.innerHTML = '';
@@ -53,7 +53,7 @@ export class View {
             const vector1 = this.createElement('span', 'vector1');
             const vector2 = this.createElement('span', 'vector2');
 
-            this.api.loadUserData(userData.name)
+            this.api.loadRepoData(repoData.name)
             .then(response => {
                 for (let item of response.items) {
                     const name = item.name;
